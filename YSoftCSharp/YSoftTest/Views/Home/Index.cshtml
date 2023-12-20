@@ -1,0 +1,29 @@
+﻿@using YSoftTest.Helpers.HtmlHelpers
+
+@model YSoftTest.ViewModels.ProductPageViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <h2 id="title">@ViewBag.Title</h2>
+
+    <div class="container">
+        @foreach (var product in Model.Products)
+        {
+            <div class="card my-3">
+                <div class="card-body">
+                    <div class="d-flex flex-row justify-content-between">
+                        <label>@product.Name</label>
+                        <p>@product.Description</p>
+                        <p>@product.Price руб.</p>
+                        <p>@product.Category</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @Html.RenderProductPagePagination(Model)
+    </div>
+</main>
